@@ -21,4 +21,5 @@ class OpenOsxTerminalCommand(sublime_plugin.TextCommand):
                     "Packages/OSXTerminal/Terminal.applescript")
         p = subprocess.Popen(['osascript', '-e', script, thefolder], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = p.communicate()
-        print(stderr)
+        if stderr:
+            print(stderr)
