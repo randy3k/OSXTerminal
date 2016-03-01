@@ -1,0 +1,3 @@
+[
+	{ "keys": ["super+shift+enter"], "command": "open_osx_terminal"}
+]
