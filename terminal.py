@@ -9,6 +9,7 @@ class OpenOsxTerminalCommand(sublime_plugin.TextCommand):
         view = self.view
         window = view.window()
         file = view.file_name()
+        thefolder = None
         if file:
             thefolder = os.path.dirname(file)
         pd = window.project_data()
@@ -17,9 +18,12 @@ class OpenOsxTerminalCommand(sublime_plugin.TextCommand):
             if project_path:
                 thefolder = project_path
 
-        script = sublime.load_resource(
-                    "Packages/OSXTerminal/Terminal.applescript")
-        p = subprocess.Popen(['osascript', '-e', script, thefolder], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = p.communicate()
-        if stderr:
-            print(stderr)
+        if thefolder:
+            thefolder = os.path.realpath(thefolder)
+            script = sublime.load_resource(
+                        "Packages/OSXTerminal/Terminal.applescript")
+            p = subprocess.Popen(['osascript', '-e', script, thefolder],
+                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            stdout, stderr = p.communicate()
+            if stderr:
+                print(stderr)
