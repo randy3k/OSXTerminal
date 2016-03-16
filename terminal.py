@@ -12,11 +12,12 @@ class OpenOsxTerminalCommand(sublime_plugin.TextCommand):
         thefolder = None
         if file:
             thefolder = os.path.dirname(file)
-        pd = window.project_data()
-        if pd and "folders" in pd and len(pd["folders"]) > 0:
-            project_path = pd["folders"][0].get("path")
-            if project_path:
-                thefolder = project_path
+        else:
+            pd = window.project_data()
+            if pd and "folders" in pd and len(pd["folders"]) > 0:
+                project_path = pd["folders"][0].get("path")
+                if project_path:
+                    thefolder = project_path
 
         if thefolder:
             thefolder = os.path.realpath(thefolder)
