@@ -4,7 +4,7 @@ import os
 import subprocess
 
 
-class OpenOsxTerminalCommand(sublime_plugin.TextCommand):
+class OpenOsxItermCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         sublime.set_timeout_async(self.run_async)
 
@@ -25,7 +25,7 @@ class OpenOsxTerminalCommand(sublime_plugin.TextCommand):
         if thefolder:
             thefolder = os.path.realpath(thefolder)
             script = sublime.load_resource(
-                        "Packages/OSXTerminal/Terminal.applescript")
+                        "Packages/OSXTerminal/iTerm.applescript")
             p = subprocess.Popen(['osascript', '-e', script, thefolder],
                                  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             stdout, stderr = p.communicate()
