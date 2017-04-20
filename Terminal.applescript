@@ -10,6 +10,7 @@ end urldecode
 on run argv
 	set detected to false
 	set thefolder to item 1 of argv & "/"
+
 	if my appIsRunning("Terminal") then
 		tell application "System Events" to tell process "Terminal"
 			repeat with w in windows
@@ -24,14 +25,11 @@ on run argv
 				end try
 			end repeat
 		end tell
+	end if
+
+	if not detected then
 		tell application "Terminal"
-			if detected then
-				activate
-			else
-				do shell script "open -a terminal " & quoted form of thefolder
-			end if
+			do shell script "open -a terminal " & quoted form of thefolder
 		end tell
-	else
-		do shell script "open -a terminal " & quoted form of thefolder
 	end if
 end run
