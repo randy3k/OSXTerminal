@@ -22,12 +22,14 @@ class OpenOsxItermCommand(sublime_plugin.TextCommand):
                 if project_path:
                     thefolder = project_path
 
-        if thefolder:
-            thefolder = os.path.realpath(thefolder)
-            script = sublime.load_resource(
-                        "Packages/OSXTerminal/iTerm.applescript")
-            p = subprocess.Popen(['osascript', '-e', script, thefolder],
-                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            stdout, stderr = p.communicate()
-            if stderr:
-                print(stderr)
+        if not thefolder:
+            thefolder = os.path.expanduser("~")
+
+        thefolder = os.path.realpath(thefolder)
+        script = sublime.load_resource(
+                    "Packages/OSXTerminal/iTerm.applescript")
+        p = subprocess.Popen(['osascript', '-e', script, thefolder],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        stdout, stderr = p.communicate()
+        if stderr:
+            print(stderr)
