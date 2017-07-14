@@ -1,0 +1,14 @@
+[
+    {
+        "caption": "Finder: Open Here",
+        "command": "open_finder_here"
+    },
+    {
+        "caption": "iTerm: Open Here",
+        "command": "open_iterm_here"
+    },
+    {
+        "caption": "Terminal: Open Here",
+        "command": "open_terminal_here"
+    }
+]
