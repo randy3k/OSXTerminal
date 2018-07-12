@@ -1,14 +1,14 @@
 [
     {
-        "caption": "Finder: Open Here",
+        "caption": "Open Finder Here",
         "command": "open_finder_here"
     },
     {
-        "caption": "iTerm: Open Here",
+        "caption": "Open iTerm Here",
         "command": "open_iterm_here"
     },
     {
-        "caption": "Terminal: Open Here",
+        "caption": "Open Terminal Here",
         "command": "open_terminal_here"
     }
 ]
