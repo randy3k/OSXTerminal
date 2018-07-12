@@ -16,9 +16,9 @@ instead of opening a new tab. However, uesr will need to make sure
 
 At the command palatte:
 
-- Finder: Open Here
-- Terminal: Open Here
-- iTerm: Open Here
+- Open Finder Here
+- Open Terminal Here
+- Open iTerm Here
 
 ## Keybind
 
